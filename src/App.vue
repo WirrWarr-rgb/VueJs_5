@@ -1,4 +1,3 @@
-<!-- App.vue -->
 <script setup>
 import { provide } from 'vue'
 import { useBudgetStore } from './stores/budgetStore'

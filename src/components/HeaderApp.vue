@@ -1,4 +1,3 @@
-<!-- components/HeaderApp.vue -->
 <script setup>
 import { inject } from 'vue'
 

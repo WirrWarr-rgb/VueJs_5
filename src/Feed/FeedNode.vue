@@ -1,10 +1,12 @@
-<!-- Feed/FeedNode.vue -->
 <script setup>
+import { provide } from 'vue'
 import FeedType from './FeedType.vue'
 
-defineProps({
+const props = defineProps({
   product: Object,
 })
+
+provide('product', props.product)
 </script>
 
 <template>

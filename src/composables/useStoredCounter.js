@@ -1,9 +1,11 @@
-// composables/useStoredCounter.js
 import { useStorage } from '@vueuse/core'
 
-export function useStoredCounter(key, initialValue = 0) {
-  const count = useStorage(key, initialValue)
-  const isActive = useStorage(`${key}_active`, false)
+export function useStoredCounter(key, initialValue = 0, uniqueId = '') {
+  const storageKey = uniqueId ? `${key}_${uniqueId}` : key
+  const storageActiveKey = uniqueId ? `${key}_active_${uniqueId}` : `${key}_active`
+
+  const count = useStorage(storageKey, initialValue)
+  const isActive = useStorage(storageActiveKey, false)
 
   const handleClick = () => {
     if (isActive.value) {
@@ -15,9 +17,15 @@ export function useStoredCounter(key, initialValue = 0) {
     }
   }
 
+  const reset = () => {
+    count.value = initialValue
+    isActive.value = false
+  }
+
   return {
     count,
     isActive,
     handleClick,
+    reset,
   }
 }

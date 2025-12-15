@@ -1,12 +1,15 @@
-<!-- components/view/LikeCount.vue -->
 <script setup>
 import { useStoredCounter } from '../../composables/useStoredCounter'
 
-const { count, isActive, handleClick } = useStoredCounter('likes', 0)
+const props = defineProps({
+  like: Number,
+})
+
+const { count, isActive, handleClick } = useStoredCounter('likes', 0, props.like)
 </script>
 
 <template>
-  <div
+  <button
     class="flex gap-3 cursor-pointer select-none transition-all hover:scale-110"
     :class="{ 'text-red-500': isActive }"
     @click="handleClick"
@@ -28,5 +31,5 @@ const { count, isActive, handleClick } = useStoredCounter('likes', 0)
       ></path>
     </svg>
     {{ count }}
-  </div>
+  </button>
 </template>

@@ -1,12 +1,15 @@
-<!-- components/view/ViewCount.vue -->
 <script setup>
 import { useStoredCounter } from '../../composables/useStoredCounter'
 
-const { count, isActive, handleClick } = useStoredCounter('views', 0)
+const props = defineProps({
+  view: Number,
+})
+
+const { count, isActive, handleClick } = useStoredCounter('views', 0, props.view)
 </script>
 
 <template>
-  <div
+  <button
     class="flex gap-3 cursor-pointer select-none transition-all hover:scale-110"
     :class="{ 'text-green-500': isActive }"
     @click="handleClick"
@@ -27,5 +30,5 @@ const { count, isActive, handleClick } = useStoredCounter('views', 0)
       <circle cx="12" cy="12" r="3"></circle>
     </svg>
     {{ count }}
-  </div>
+  </button>
 </template>

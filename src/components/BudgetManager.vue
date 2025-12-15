@@ -1,4 +1,3 @@
-<!-- components/BudgetManager.vue -->
 <script setup>
 import { inject } from 'vue'
 
@@ -35,7 +34,7 @@ const budgetStore = inject('budgetStore')
     </div>
 
     <div v-if="budgetStore.isOverBudget" class="p-3 bg-red-100 text-red-700 rounded">
-      ⚠️ Превышен лимит бюджета!
+      Превышен лимит бюджета!
     </div>
 
     <button

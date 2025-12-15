@@ -1,5 +1,4 @@
-// composables/useCounter.js
-import { ref } from 'vue' // 移除未使用的 computed
+import { ref } from 'vue'
 
 export function useCounter(initialValue = 0) {
   const count = ref(initialValue)
