@@ -3,9 +3,15 @@ import { useStoredCounter } from '../../composables/useStoredCounter'
 
 const props = defineProps({
   comment: Number,
+  productId: Number,
 })
 
-const { count, isActive, handleClick } = useStoredCounter('comments', 0, props.comment)
+// Используем productId для уникального ключа
+const { count, isActive, handleClick } = useStoredCounter(
+  'comment',
+  props.comment,
+  `product_${props.productId}`,
+)
 </script>
 
 <template>

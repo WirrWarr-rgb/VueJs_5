@@ -15,6 +15,11 @@ export const useBudgetStore = defineStore('budget', () => {
         id: 1,
         full_name: 'Alex Alex Alex',
       },
+      meta: {
+        comment: 5,
+        like: 10,
+        view: 100,
+      },
     },
     {
       id: 2,
@@ -24,6 +29,11 @@ export const useBudgetStore = defineStore('budget', () => {
       user: {
         id: 2,
         full_name: 'Palex Palex Palex',
+      },
+      meta: {
+        comment: 2,
+        like: 5,
+        view: 50,
       },
     },
   ])

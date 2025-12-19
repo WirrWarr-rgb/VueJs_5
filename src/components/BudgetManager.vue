@@ -1,7 +1,7 @@
 <script setup>
-import { inject } from 'vue'
+import { useBudgetStore } from '../stores/budgetStore'
 
-const budgetStore = inject('budgetStore')
+const budgetStore = useBudgetStore()
 </script>
 
 <template>

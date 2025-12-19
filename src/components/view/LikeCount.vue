@@ -3,9 +3,15 @@ import { useStoredCounter } from '../../composables/useStoredCounter'
 
 const props = defineProps({
   like: Number,
+  productId: Number,
 })
 
-const { count, isActive, handleClick } = useStoredCounter('likes', 0, props.like)
+// Используем productId для уникального ключа
+const { count, isActive, handleClick } = useStoredCounter(
+  'like',
+  props.like,
+  `product_${props.productId}`,
+)
 </script>
 
 <template>
